@@ -21,21 +21,21 @@
 
 - крім основних реалізацій функцій за варіантом, також реалізовано додатковий варіант однієї чи обох функцій, який працюватиме швидше за основну реалізацію, не порушуючи при цьому перші три вимоги до основної реалізації (вимоги 4 і 5 можуть бути порушені), за виключенням того, що в разі необхідності можна також використати стандартну функцію copy-list
 
-## Варіант 21 (6)
+## Варіант 6
 
 ## Лістинг функції merge-lists-spinning-pairs
 Написати функцію `merge-lists-spinning-pairs` , яка групує відповідні елементи двох списків, почергово змінюючи їх взаємне розташування в групі:
 ```lisp
 (defun merge-lists-spinning-pairs (list1 list2)
   (cond
-    ((and (null list1) (null list2)) nil)  ; Якщо обидва списки порожні, повертаємо nil
+    ((and (null list1) (null list2)) nil)
     ((null list1) 
-     (cons (list (car list2)) (merge-lists-spinning-pairs nil (cdr list2))))  ; Якщо перший список порожній
+     (cons (list (car list2)) (merge-lists-spinning-pairs nil (cdr list2))))
     ((null list2) 
-     (cons (list (car list1)) (merge-lists-spinning-pairs (cdr list1) nil)))  ; Якщо другий список порожній
+     (cons (list (car list1)) (merge-lists-spinning-pairs (cdr list1) nil)))
     (t 
      (cons (list (car list1) (car list2)) 
-           (merge-lists-spinning-pairs (cdr list2) (cdr list1))))))  ; Обробляємо елементи з обох списків
+           (merge-lists-spinning-pairs (cdr list2) (cdr list1))))))
  ```
 ## Тестування
 ```lisp
